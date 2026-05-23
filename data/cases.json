@@ -61,7 +61,7 @@
   {
     "case_id": "DSA-2026-00002",
     "case_type": "dsa_application",
-    "status": "evidence_received",
+    "status": "evidence_requested",
     "applicant": {
       "name": "James Chen",
       "forenames": "James",
@@ -80,7 +80,7 @@
     },
     "assigned_to": "jsmith",
     "created_date": "2026-02-15T14:00:00.000Z",
-    "last_updated": "2026-04-16T14:51:26.163Z",
+    "last_updated": "2026-05-23T19:35:33.947Z",
     "timeline": [
       {
         "date": "2026-02-15T14:00:00.000Z",
@@ -119,6 +119,12 @@
         "date": "2026-04-16T14:51:26.163Z",
         "event": "evidence_received",
         "note": "Evidence uploaded by applicant: birth certificate. Files: Screenshot 2026-02-17 160722.png"
+      },
+      {
+        "date": "2026-05-23T19:35:33.947Z",
+        "event": "evidence_requested",
+        "note": "can you send the invoices",
+        "actor": "jsmith"
       }
     ],
     "case_notes": "Applicant has dyslexia diagnosis from 2019. Quotes look reasonable.",
@@ -147,7 +153,7 @@
       "declaration_confirmed": true,
       "submitted_at": "2026-02-15T14:00:00.000Z"
     },
-    "evidence_requested_date": "2026-04-16T14:45:39.135Z"
+    "evidence_requested_date": "2026-05-23T19:35:33.947Z"
   },
   {
     "case_id": "DSA-2026-00003",
@@ -401,7 +407,7 @@
   {
     "case_id": "DSA-2026-00006",
     "case_type": "dsa_application",
-    "status": "evidence_requested",
+    "status": "awaiting_evidence",
     "applicant": {
       "name": "fouad khan",
       "forenames": "fouad",
@@ -420,7 +426,7 @@
     },
     "assigned_to": "mbrown",
     "created_date": "2026-04-16T13:12:03.032Z",
-    "last_updated": "2026-04-16T13:59:55.479Z",
+    "last_updated": "2026-05-23T19:34:16.565Z",
     "timeline": [
       {
         "date": "2026-04-16T13:12:03.032Z",
@@ -444,6 +450,11 @@
         "event": "reassigned",
         "note": "Reassigned from awilson to mbrown",
         "actor": "awilson"
+      },
+      {
+        "date": "2026-05-23T19:34:16.565Z",
+        "event": "state_transition",
+        "note": "Applicant viewed evidence request — status updated to Awaiting evidence."
       }
     ],
     "case_notes": "",
@@ -1032,7 +1043,7 @@
   {
     "case_id": "DSA-2026-00010",
     "case_type": "dsa_application",
-    "status": "evidence_received",
+    "status": "evidence_requested",
     "applicant": {
       "name": "X Core",
       "forenames": "X",
@@ -1051,7 +1062,7 @@
     },
     "assigned_to": "jsmith",
     "created_date": "2026-04-21T09:48:37.214Z",
-    "last_updated": "2026-05-08T10:48:34.290Z",
+    "last_updated": "2026-05-23T19:36:28.004Z",
     "timeline": [
       {
         "date": "2026-04-21T09:48:37.214Z",
@@ -1094,6 +1105,12 @@
         "date": "2026-05-08T10:48:34.290Z",
         "event": "evidence_received",
         "note": "Evidence uploaded by applicant: Invoice. Files: invoice_MF20259633.pdf"
+      },
+      {
+        "date": "2026-05-23T19:36:28.004Z",
+        "event": "evidence_requested",
+        "note": "further evidence requested to assess eligibility",
+        "actor": "jsmith"
       }
     ],
     "case_notes": "",
@@ -1325,7 +1342,7 @@
         ]
       }
     ],
-    "evidence_requested_date": "2026-05-08T10:41:56.934Z"
+    "evidence_requested_date": "2026-05-23T19:36:28.004Z"
   },
   {
     "case_id": "DSA-2026-00011",

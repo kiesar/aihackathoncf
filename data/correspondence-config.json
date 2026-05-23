@@ -1,15 +1,15 @@
 [
   {
-    "rule_id": "awaiting_evidence_7d",
-    "name": "Evidence reminder — 7 days",
+    "rule_id": "awaiting_evidence_2d",
+    "name": "Evidence reminder — 2 days",
     "enabled": true,
     "trigger_status": "awaiting_evidence",
-    "trigger_after_days": 7,
+    "trigger_after_days": 2,
     "correspondence_type": "reminder_evidence",
     "subject_template": "Action required: Please submit your evidence for DSA application {{case_id}}",
     "body_template": "Dear {{applicant_name}},\n\nWe are writing to remind you that we are still waiting for supporting evidence for your Disabled Students Allowance (DSA) application (reference: {{case_id}}).\n\nYour application has been awaiting evidence for {{days_outstanding}} days. To avoid delays in processing your application, please submit the required documents as soon as possible.\n\nYou can upload your evidence by visiting your application status page and clicking 'Upload evidence'.\n\nIf you have already submitted your evidence, please disregard this message.\n\nIf you have any questions, please contact us.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
     "send_via": "both",
-    "repeat_every_days": 7
+    "repeat_every_days": 2
   },
   {
     "rule_id": "awaiting_evidence_28d",
