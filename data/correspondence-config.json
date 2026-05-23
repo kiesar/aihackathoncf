@@ -1,0 +1,62 @@
+[
+  {
+    "rule_id": "awaiting_evidence_7d",
+    "name": "Evidence reminder — 7 days",
+    "enabled": true,
+    "trigger_status": "awaiting_evidence",
+    "trigger_after_days": 7,
+    "correspondence_type": "reminder_evidence",
+    "subject_template": "Action required: Please submit your evidence for DSA application {{case_id}}",
+    "body_template": "Dear {{applicant_name}},\n\nWe are writing to remind you that we are still waiting for supporting evidence for your Disabled Students Allowance (DSA) application (reference: {{case_id}}).\n\nYour application has been awaiting evidence for {{days_outstanding}} days. To avoid delays in processing your application, please submit the required documents as soon as possible.\n\nYou can upload your evidence by visiting your application status page and clicking 'Upload evidence'.\n\nIf you have already submitted your evidence, please disregard this message.\n\nIf you have any questions, please contact us.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+    "send_via": "both",
+    "repeat_every_days": 7
+  },
+  {
+    "rule_id": "awaiting_evidence_28d",
+    "name": "Evidence reminder — 28 days (escalation warning)",
+    "enabled": true,
+    "trigger_status": "awaiting_evidence",
+    "trigger_after_days": 28,
+    "correspondence_type": "reminder_evidence",
+    "subject_template": "Urgent: Evidence required for DSA application {{case_id}} — deadline approaching",
+    "body_template": "Dear {{applicant_name}},\n\nThis is an urgent reminder that your Disabled Students Allowance (DSA) application (reference: {{case_id}}) has been awaiting evidence for {{days_outstanding}} days.\n\nIf we do not receive the required evidence within the next 28 days, your application may be closed.\n\nPlease upload your supporting documents immediately by visiting your application status page.\n\nIf you are experiencing difficulties submitting your evidence, please contact us as soon as possible.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+    "send_via": "both",
+    "repeat_every_days": null
+  },
+  {
+    "rule_id": "under_review_14d",
+    "name": "Under review update — 14 days",
+    "enabled": true,
+    "trigger_status": "under_review",
+    "trigger_after_days": 14,
+    "correspondence_type": "general_update",
+    "subject_template": "Update on your DSA application {{case_id}}",
+    "body_template": "Dear {{applicant_name}},\n\nWe wanted to let you know that your Disabled Students Allowance (DSA) application (reference: {{case_id}}) is currently under review.\n\nOur team is working through your application and we aim to provide a decision as soon as possible. You do not need to take any action at this time.\n\nYou can check the current status of your application at any time using your case reference number.\n\nThank you for your patience.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+    "send_via": "email",
+    "repeat_every_days": null
+  },
+  {
+    "rule_id": "awaiting_assessment_14d",
+    "name": "Assessment reminder — 14 days",
+    "enabled": true,
+    "trigger_status": "awaiting_assessment",
+    "trigger_after_days": 14,
+    "correspondence_type": "reminder_assessment",
+    "subject_template": "Reminder: DSA needs assessment for application {{case_id}}",
+    "body_template": "Dear {{applicant_name}},\n\nYour Disabled Students Allowance (DSA) application (reference: {{case_id}}) requires a needs assessment before we can make a decision.\n\nPlease contact your university's disability service or an approved DSA needs assessor to arrange your assessment. Once completed, please ensure the assessment report is submitted to us.\n\nIf you have already arranged your assessment, please disregard this message.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+    "send_via": "both",
+    "repeat_every_days": 14
+  },
+  {
+    "rule_id": "escalated_notice",
+    "name": "Escalation notice",
+    "enabled": true,
+    "trigger_status": "escalated",
+    "trigger_after_days": 0,
+    "correspondence_type": "escalation_notice",
+    "subject_template": "Important: Your DSA application {{case_id}} has been escalated",
+    "body_template": "Dear {{applicant_name}},\n\nWe are writing to inform you that your Disabled Students Allowance (DSA) application (reference: {{case_id}}) has been escalated to a senior caseworker for review.\n\nThis may be because we have not received the required evidence, or because your case requires additional consideration.\n\nA senior caseworker will be in touch with you shortly. In the meantime, if you have any outstanding evidence to submit, please do so as soon as possible.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+    "send_via": "both",
+    "repeat_every_days": null
+  }
+]

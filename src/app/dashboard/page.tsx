@@ -151,9 +151,14 @@ export default function CaseListPage() {
       <main className="govuk-main-wrapper" id="main-content" role="main">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <h1 className="govuk-heading-l">Your cases</h1>
-          <a href="/dashboard/insights" className="govuk-button govuk-button--secondary" style={{ marginBottom: "20px" }}>
-            View insights
-          </a>
+          <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+            <a href="/dashboard/correspondence" className="govuk-button govuk-button--secondary" style={{ marginBottom: 0 }}>
+              Correspondence config
+            </a>
+            <a href="/dashboard/insights" className="govuk-button govuk-button--secondary" style={{ marginBottom: 0 }}>
+              View insights
+            </a>
+          </div>
         </div>
 
         {error && (

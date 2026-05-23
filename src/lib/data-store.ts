@@ -5,6 +5,7 @@ import {
   User,
   WorkflowStateDefinition,
   PolicyExtract,
+  CorrespondenceRule,
 } from "@/types";
 
 // ── File paths ──────────────────────────────────────────────
@@ -16,6 +17,7 @@ const PATHS = {
   users: path.join(DATA_DIR, "users.json"),
   workflowStates: path.join(DATA_DIR, "workflow-states.json"),
   policyExtracts: path.join(DATA_DIR, "policy-extracts.json"),
+  correspondenceConfig: path.join(DATA_DIR, "correspondence-config.json"),
 } as const;
 
 // ── Generic helpers ─────────────────────────────────────────
@@ -93,4 +95,14 @@ export function readPolicyExtracts(): PolicyExtract[] {
 
 export function writePolicyExtracts(extracts: PolicyExtract[]): void {
   writeJsonFile(PATHS.policyExtracts, extracts);
+}
+
+// ── Correspondence Config ────────────────────────────────────
+
+export function readCorrespondenceConfig(): CorrespondenceRule[] {
+  return readJsonFile<CorrespondenceRule[]>(PATHS.correspondenceConfig);
+}
+
+export function writeCorrespondenceConfig(rules: CorrespondenceRule[]): void {
+  writeJsonFile(PATHS.correspondenceConfig, rules);
 }

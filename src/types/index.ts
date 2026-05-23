@@ -91,6 +91,7 @@ export interface Case {
   evidence_requested_date?: string;
   decision_reason?: string;
   evidence_submissions?: EvidenceSubmission[];
+  outbound_letters?: OutboundLetter[];
 }
 
 // ── Workflow ────────────────────────────────────────────────
@@ -145,6 +146,43 @@ export interface EvidenceSubmission {
   description: string;
   files: Array<{ name: string; size: number; type: string }>;
   extracted_fields: ExtractedEvidenceField[];
+}
+
+// ── Correspondence ──────────────────────────────────────────
+
+export type CorrespondenceType =
+  | "reminder_evidence"
+  | "reminder_assessment"
+  | "escalation_notice"
+  | "decision_approved"
+  | "decision_rejected"
+  | "acknowledgement"
+  | "general_update";
+
+export interface OutboundLetter {
+  letter_id: string;
+  generated_at: string;
+  type: CorrespondenceType;
+  subject: string;
+  body: string;
+  sent_via: "email" | "sms" | "post";
+  sent_to: string;           // email address or phone number
+  triggered_by: "automatic" | "manual";
+  trigger_rule?: string;     // e.g. "awaiting_evidence_7d"
+  read_at?: string;          // ISO timestamp when student viewed it
+}
+
+export interface CorrespondenceRule {
+  rule_id: string;
+  name: string;
+  enabled: boolean;
+  trigger_status: WorkflowStateName;
+  trigger_after_days: number;
+  correspondence_type: CorrespondenceType;
+  subject_template: string;
+  body_template: string;     // supports {{applicant_name}}, {{case_id}}, {{days_outstanding}}, {{university}}
+  send_via: "email" | "sms" | "both";
+  repeat_every_days?: number; // if set, re-send every N days until status changes
 }
 
 // ── AI Summary ──────────────────────────────────────────────

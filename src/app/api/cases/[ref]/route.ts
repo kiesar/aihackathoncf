@@ -63,6 +63,7 @@ export async function GET(
       displayStatus: string;
       lastUpdated: string;
       decisionReason?: string;
+      outboundLetters?: Array<{ letter_id: string; subject: string; generated_at: string; type: string; read_at?: string }>;
     } = {
       status: found.status,
       displayStatus: DISPLAY_STATUS[found.status] ?? found.status,
@@ -74,6 +75,19 @@ export async function GET(
       found.decision_reason
     ) {
       response.decisionReason = found.decision_reason;
+    }
+
+    // Include outbound letters summary (no sensitive body content)
+    if (found.outbound_letters && found.outbound_letters.length > 0) {
+      response.outboundLetters = found.outbound_letters
+        .sort((a, b) => new Date(b.generated_at).getTime() - new Date(a.generated_at).getTime())
+        .map((l) => ({
+          letter_id: l.letter_id,
+          subject: l.subject,
+          generated_at: l.generated_at,
+          type: l.type,
+          read_at: l.read_at,
+        }));
     }
 
     return NextResponse.json(response);

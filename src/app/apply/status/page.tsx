@@ -2,11 +2,20 @@
 
 import { useState, FormEvent } from "react";
 
+interface LetterSummary {
+  letter_id: string;
+  subject: string;
+  generated_at: string;
+  type: string;
+  read_at?: string;
+}
+
 interface StatusResult {
   status: string;
   displayStatus: string;
   lastUpdated: string;
   decisionReason?: string;
+  outboundLetters?: LetterSummary[];
 }
 
 export default function StatusCheckPage() {
@@ -164,6 +173,53 @@ export default function StatusCheckPage() {
             >
               Upload evidence
             </a>
+          </div>
+        )}
+
+        {/* Outbound letters */}
+        {result && result.outboundLetters && result.outboundLetters.length > 0 && (
+          <div style={{ marginTop: "30px" }}>
+            <h2 className="govuk-heading-m">Letters from Student Finance England</h2>
+            <p className="govuk-body">
+              The following letters have been sent to you regarding your application.
+            </p>
+            <table className="govuk-table">
+              <thead className="govuk-table__head">
+                <tr className="govuk-table__row">
+                  <th scope="col" className="govuk-table__header">Date</th>
+                  <th scope="col" className="govuk-table__header">Subject</th>
+                  <th scope="col" className="govuk-table__header">Status</th>
+                  <th scope="col" className="govuk-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody className="govuk-table__body">
+                {result.outboundLetters.map((letter) => (
+                  <tr key={letter.letter_id} className="govuk-table__row">
+                    <td className="govuk-table__cell">
+                      {new Date(letter.generated_at).toLocaleDateString("en-GB", {
+                        day: "numeric", month: "long", year: "numeric"
+                      })}
+                    </td>
+                    <td className="govuk-table__cell">{letter.subject}</td>
+                    <td className="govuk-table__cell">
+                      {letter.read_at ? (
+                        <strong className="govuk-tag govuk-tag--green">Read</strong>
+                      ) : (
+                        <strong className="govuk-tag govuk-tag--blue">New</strong>
+                      )}
+                    </td>
+                    <td className="govuk-table__cell">
+                      <a
+                        href={`/apply/letters/${encodeURIComponent(caseReference.trim())}/${letter.letter_id}`}
+                        className="govuk-link"
+                      >
+                        View letter
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </main>

@@ -630,7 +630,7 @@ export default function CaseDetailPage() {
             </section>
 
             {/* Policy extracts */}
-            <section aria-labelledby="policy-heading">
+            <section aria-labelledby="policy-heading" style={{ marginBottom: "30px" }}>
               <h2 className="govuk-heading-m" id="policy-heading">Policy extracts</h2>
 
               {relevantClauses.length > 0 && (
@@ -656,6 +656,48 @@ export default function CaseDetailPage() {
                     </summary>
                     <div className="govuk-details__text">
                       <p className="govuk-body">{p.body}</p>
+                    </div>
+                  </details>
+                ))
+              )}
+            </section>
+
+            {/* Outbound letters */}
+            <section aria-labelledby="outbound-heading">
+              <h2 className="govuk-heading-m" id="outbound-heading">Outbound correspondence</h2>
+              {!caseRecord.outbound_letters || caseRecord.outbound_letters.length === 0 ? (
+                <p className="govuk-body govuk-hint">No letters sent yet.</p>
+              ) : (
+                [...caseRecord.outbound_letters]
+                  .sort((a, b) => new Date(b.generated_at).getTime() - new Date(a.generated_at).getTime())
+                  .map((letter) => (
+                  <details key={letter.letter_id} className="govuk-details" style={{ marginBottom: "10px" }}>
+                    <summary className="govuk-details__summary">
+                      <span className="govuk-details__summary-text">
+                        {formatDate(letter.generated_at)} —{" "}
+                        {letter.read_at ? (
+                          <strong className="govuk-tag govuk-tag--green" style={{ fontSize: "11px" }}>Read</strong>
+                        ) : (
+                          <strong className="govuk-tag govuk-tag--blue" style={{ fontSize: "11px" }}>Sent</strong>
+                        )}
+                      </span>
+                    </summary>
+                    <div className="govuk-details__text">
+                      <p className="govuk-body govuk-!-font-weight-bold" style={{ marginBottom: "4px" }}>
+                        {letter.subject}
+                      </p>
+                      <p className="govuk-hint" style={{ fontSize: "12px", marginBottom: "8px" }}>
+                        Sent via {letter.sent_via} to {letter.sent_to || "—"} · {letter.triggered_by === "automatic" ? "Automated" : "Manual"}
+                        {letter.read_at && ` · Read ${formatDateTime(letter.read_at)}`}
+                      </p>
+                      <a
+                        href={`/dashboard/cases/${caseRecord.case_id}/letters/${letter.letter_id}`}
+                        className="govuk-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View letter
+                      </a>
                     </div>
                   </details>
                 ))
