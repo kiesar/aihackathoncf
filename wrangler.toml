@@ -1,6 +1,8 @@
 name = "aihackathoncf"
 pages_build_output_dir = ".next"
+compatibility_date = "2026-06-08"
 [env.production.vars]
 NODE_VERSION = "25.2.1"
-compatibility_date = "2026-06-08"
 main = "src/index.html"
+[assets]
+directory = "./public/assets"
