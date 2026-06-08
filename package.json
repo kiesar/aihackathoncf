@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env SKIP_BUILD_CHECK=true NODE_ENV=production next build",
+    "build": "npm run clean:cache && cross-env SKIP_BUILD_CHECK=true NODE_ENV=production next build",
     "deploy": "npm run build && npm run clean:cache && wrangler pages deploy --commit-dirty=true",
     "clean:cache": "node -e \"require('fs').rmSync('.next/dev', {recursive: true, force: true}); require('fs').rmSync('.next/.turbopack', {recursive: true, force: true}); require('fs').rmSync('.next/cache', {recursive: true, force: true});\"",
     "start": "next start",
