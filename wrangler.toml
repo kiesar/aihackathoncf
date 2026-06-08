@@ -1,9 +1,2 @@
 name = "hackathoncf"
-type = "javascript"
-account_id = ""
-workers_dev = true
-
-[env.production]
-routes = [
-  { pattern = "example.com", zone_name = "example.com" }
-]
+pages_build_output_dir = ".next"
