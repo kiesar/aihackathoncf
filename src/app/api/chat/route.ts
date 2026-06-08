@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
   try {
     const body: ChatRequest = await request.json();
     const { message, sessionData } = body;
-    const session = { ...sessionData } || {};
+    const session = sessionData || {};
     const trimmed = message.trim();
 
     // If we're in the middle of an application flow

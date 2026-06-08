@@ -1,0 +1,4 @@
+# Exclude Turbopack cache from Pages deployment
+.next/dev/
+.next/.turbopack/
+.next/cache/
