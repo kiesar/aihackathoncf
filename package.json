@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "agents": "^0.14.5",
     "bcrypt": "^6.0.0",
     "govuk-frontend": "^5.4.0",
     "iron-session": "^8.0.0",
