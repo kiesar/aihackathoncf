@@ -254,6 +254,18 @@ describe("GET /api/dashboard/cases?view=team", () => {
     expect(body.cases.map((c: { case_id: string }) => c.case_id).sort()).toEqual(["DSA-2026-00001", "DSA-2026-00002"]);
   });
 
+  it("does not include cases assigned to the team leader in team view", async () => {
+    const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
+    const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "awilson" });
+    mockedReadCases.mockReturnValue([case1, case2]);
+
+    const res = await GET(buildRequest("view=team"));
+    const body = await res.json();
+    expect(body.totalCount).toBe(1);
+    expect(body.cases[0].case_id).toBe("DSA-2026-00001");
+    expect(body.cases[0].assigned_to).toBe("jsmith");
+  });
+
   it("includes assigned_to in team view response items", async () => {
     const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
     mockedReadCases.mockReturnValue([case1]);

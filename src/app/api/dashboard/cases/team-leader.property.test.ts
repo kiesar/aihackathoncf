@@ -99,11 +99,11 @@ const arbWorkflowState = fc.constantFrom(...ALL_WORKFLOW_STATES);
 const arbCaseType = fc.constantFrom(...ALL_CASE_TYPES);
 
 const arbIsoDate = fc
-  .date({
-    min: new Date("2024-01-01T00:00:00.000Z"),
-    max: new Date("2027-12-31T23:59:59.999Z"),
+  .integer({
+    min: new Date("2024-01-01T00:00:00.000Z").getTime(),
+    max: new Date("2027-12-31T23:59:59.999Z").getTime(),
   })
-  .map((d) => d.toISOString());
+  .map((ms) => new Date(ms).toISOString());
 
 const arbCaseId = fc
   .tuple(
@@ -156,12 +156,12 @@ describe("Team Leader View — Property Tests", () => {
         expect(res.status).toBe(200);
         const body: DashboardCasesResponse = await res.json();
 
-        // team_a usernames from TEAM_USERS
+        // team_a caseworker usernames from TEAM_USERS
         const teamAUsernames = new Set(
-          TEAM_USERS.filter((u) => u.team === "team_a").map((u) => u.username)
+          TEAM_USERS.filter((u) => u.team === "team_a" && u.role === "caseworker").map((u) => u.username)
         );
 
-        // Expected: all cases assigned to any team_a member
+        // Expected: all cases assigned to any team_a caseworker
         const expectedIds = cases
           .filter((c) => teamAUsernames.has(c.assigned_to))
           .map((c) => c.case_id)
@@ -192,9 +192,9 @@ describe("Team Leader View — Property Tests", () => {
         expect(res.status).toBe(200);
         const body: DashboardCasesResponse = await res.json();
 
-        // Compute expected state counts from team cases
+        // Compute expected state counts from team caseworker cases
         const teamAUsernames = new Set(
-          TEAM_USERS.filter((u) => u.team === "team_a").map((u) => u.username)
+          TEAM_USERS.filter((u) => u.team === "team_a" && u.role === "caseworker").map((u) => u.username)
         );
         const teamCases = cases.filter((c) => teamAUsernames.has(c.assigned_to));
 

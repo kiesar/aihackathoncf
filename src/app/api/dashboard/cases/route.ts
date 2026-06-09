@@ -74,11 +74,11 @@ export async function GET(request: NextRequest) {
 
     let filtered: Case[];
     if (isTeamView) {
-      // Team leader view: show all cases assigned to any team member
+      // Team leader view: show all cases assigned to same-team caseworkers
       const users = readUsers();
       const teamUsernames = new Set(
         users
-          .filter((u) => u.team === session.team)
+          .filter((u) => u.team === session.team && u.role === "caseworker")
           .map((u) => u.username)
       );
       filtered = allCases.filter((c) => teamUsernames.has(c.assigned_to));
