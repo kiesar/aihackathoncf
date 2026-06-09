@@ -1,9 +1,9 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	//"main": ".open-next/worker.js",
+	"main": ".open-next/worker.js",
 	"name": "hackathoncf",
 	"compatibility_date": "2026-06-09",
-	"pages_build_output_dir": ".open-next/pages",
+	//"pages_build_output_dir": ".open-next/",
 	"compatibility_flags": [
 		"nodejs_compat",
 		"global_fetch_strictly_public"
