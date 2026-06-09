@@ -242,51 +242,51 @@ describe("GET /api/dashboard/cases?view=team", () => {
     mockedReadUsers.mockReturnValue(teamUsers);
   });
 
-  it("returns all team cases for team leader with view=team", async () => {
-    const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
-    const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown" });
-    const case3 = makeCase({ case_id: "DSA-2026-00003", assigned_to: "other" });
+  it("returns the team leader's own cases by default in team view", async () => {
+    const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "awilson" });
+    const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "jsmith" });
+    const case3 = makeCase({ case_id: "DSA-2026-00003", assigned_to: "mbrown" });
     mockedReadCases.mockReturnValue([case1, case2, case3]);
-
-    const res = await GET(buildRequest("view=team"));
-    const body = await res.json();
-    expect(body.totalCount).toBe(2);
-    expect(body.cases.map((c: { case_id: string }) => c.case_id).sort()).toEqual(["DSA-2026-00001", "DSA-2026-00002"]);
-  });
-
-  it("does not include cases assigned to the team leader in team view", async () => {
-    const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
-    const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "awilson" });
-    mockedReadCases.mockReturnValue([case1, case2]);
 
     const res = await GET(buildRequest("view=team"));
     const body = await res.json();
     expect(body.totalCount).toBe(1);
     expect(body.cases[0].case_id).toBe("DSA-2026-00001");
-    expect(body.cases[0].assigned_to).toBe("jsmith");
+    expect(body.cases[0].assigned_to).toBe("awilson");
   });
 
-  it("includes assigned_to in team view response items", async () => {
+  it("returns no cases when the team leader has no assigned cases in team view", async () => {
+    const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
+    const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown" });
+    mockedReadCases.mockReturnValue([case1, case2]);
+
+    const res = await GET(buildRequest("view=team"));
+    const body = await res.json();
+    expect(body.totalCount).toBe(0);
+    expect(body.cases).toEqual([]);
+  });
+
+  it("includes assigned_to in team view response items when a team member is selected", async () => {
     const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
     mockedReadCases.mockReturnValue([case1]);
 
-    const res = await GET(buildRequest("view=team"));
+    const res = await GET(buildRequest("view=team&assigned_to=jsmith"));
     const body = await res.json();
     expect(body.cases[0].assigned_to).toBe("jsmith");
   });
 
-  it("includes stateCounts in team view response", async () => {
+  it("includes stateCounts in team view response for selected team members", async () => {
     const cases = [
-      makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith", status: "awaiting_evidence" }),
-      makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown", status: "awaiting_evidence" }),
-      makeCase({ case_id: "DSA-2026-00003", assigned_to: "jsmith", status: "under_review" }),
+      makeCase({ case_id: "DSA-2026-00001", assigned_to: "awilson", status: "awaiting_evidence" }),
+      makeCase({ case_id: "DSA-2026-00002", assigned_to: "awilson", status: "under_review" }),
+      makeCase({ case_id: "DSA-2026-00003", assigned_to: "jsmith", status: "awaiting_evidence" }),
     ];
     mockedReadCases.mockReturnValue(cases);
 
     const res = await GET(buildRequest("view=team"));
     const body = await res.json();
     expect(body.stateCounts).toEqual({
-      awaiting_evidence: 2,
+      awaiting_evidence: 1,
       under_review: 1,
     });
   });
@@ -307,16 +307,30 @@ describe("GET /api/dashboard/cases?view=team", () => {
     expect(body.stateCounts).toBeUndefined();
   });
 
-  it("applies status filter in team view", async () => {
+  it("applies status filter in team view for the team leader's own cases", async () => {
     const cases = [
-      makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith", status: "awaiting_evidence" }),
-      makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown", status: "under_review" }),
+      makeCase({ case_id: "DSA-2026-00001", assigned_to: "awilson", status: "awaiting_evidence" }),
+      makeCase({ case_id: "DSA-2026-00002", assigned_to: "awilson", status: "under_review" }),
     ];
     mockedReadCases.mockReturnValue(cases);
 
     const res = await GET(buildRequest("view=team&status=under_review"));
     const body = await res.json();
     expect(body.totalCount).toBe(1);
+    expect(body.cases[0].case_id).toBe("DSA-2026-00002");
+  });
+
+  it("filters team view by assigned_to caseworker", async () => {
+    const cases = [
+      makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" }),
+      makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown" }),
+    ];
+    mockedReadCases.mockReturnValue(cases);
+
+    const res = await GET(buildRequest("view=team&assigned_to=mbrown"));
+    const body = await res.json();
+    expect(body.totalCount).toBe(1);
+    expect(body.cases[0].assigned_to).toBe("mbrown");
     expect(body.cases[0].case_id).toBe("DSA-2026-00002");
   });
 });

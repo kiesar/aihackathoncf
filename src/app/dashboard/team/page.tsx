@@ -26,6 +26,7 @@ interface TeamCasesResponse {
 interface TeamMember {
   username: string;
   display_name: string;
+  role: "caseworker" | "team_leader";
 }
 
 const STATUS_DISPLAY: Record<WorkflowStateName, string> = {
@@ -55,6 +56,7 @@ export default function TeamLeaderPage() {
   const [sortField, setSortField] = useState("created_date");
   const [sortOrder, setSortOrder] = useState("desc");
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [selectedCaseworker, setSelectedCaseworker] = useState("");
   const [reassignCaseId, setReassignCaseId] = useState<string | null>(null);
   const [reassignTarget, setReassignTarget] = useState("");
   const [reassignError, setReassignError] = useState("");
@@ -66,6 +68,7 @@ export default function TeamLeaderPage() {
     try {
       const params = new URLSearchParams({ view: "team" });
       if (statusFilter) params.set("status", statusFilter);
+      if (selectedCaseworker) params.set("assigned_to", selectedCaseworker);
       params.set("sort", sortField);
       params.set("order", sortOrder);
 
@@ -77,30 +80,31 @@ export default function TeamLeaderPage() {
       if (!res.ok) throw new Error("Failed to fetch cases");
       const json: TeamCasesResponse = await res.json();
       setData(json);
-
-      // Extract unique team members from case data
-      const members = new Map<string, string>();
-      for (const c of json.cases) {
-        if (c.assigned_to) {
-          members.set(c.assigned_to, c.assigned_to);
-        }
-      }
-      setTeamMembers(
-        Array.from(members.entries()).map(([username]) => ({
-          username,
-          display_name: username,
-        }))
-      );
     } catch {
       setError("Sorry, there is a problem with the service. Try again later.");
     } finally {
       setLoading(false);
     }
-  }, [statusFilter, sortField, sortOrder, router]);
+  }, [statusFilter, selectedCaseworker, sortField, sortOrder, router]);
 
   useEffect(() => {
     fetchCases();
   }, [fetchCases]);
+
+  useEffect(() => {
+    async function fetchTeamMembers() {
+      try {
+        const res = await fetch("/api/dashboard/team-members");
+        if (!res.ok) return;
+        const json = await res.json();
+        setTeamMembers(json.members.filter((member: TeamMember) => member.role === "caseworker"));
+      } catch {
+        // Ignore failures; reassign dropdown may still use current members
+      }
+    }
+
+    fetchTeamMembers();
+  }, []);
 
   function handleSort(field: string) {
     if (sortField === field) {
@@ -238,6 +242,24 @@ export default function TeamLeaderPage() {
         <div className="govuk-grid-row" style={{ marginBottom: "20px" }}>
           <div className="govuk-grid-column-one-third">
             <div className="govuk-form-group">
+              <label className="govuk-label" htmlFor="caseworker-filter">Filter by caseworker</label>
+              <select
+                className="govuk-select"
+                id="caseworker-filter"
+                value={selectedCaseworker}
+                onChange={(e) => setSelectedCaseworker(e.target.value)}
+              >
+                <option value="">All caseworkers</option>
+                {teamMembers.map((member) => (
+                  <option key={member.username} value={member.username}>
+                    {member.display_name} ({member.username})
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="govuk-grid-column-one-third">
+            <div className="govuk-form-group">
               <label className="govuk-label" htmlFor="status-filter">Filter by status</label>
               <select className="govuk-select" id="status-filter" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
                 <option value="">All statuses</option>
@@ -249,7 +271,26 @@ export default function TeamLeaderPage() {
           </div>
         </div>
 
-        {loading && <p className="govuk-body">Loading cases…</p>}
+        {!loading && (
+          <div style={{ marginBottom: "20px" }}>
+            <p className="govuk-body govuk-!-font-weight-bold">
+              {selectedCaseworker
+                ? `Showing cases for ${teamMembers.find((member) => member.username === selectedCaseworker)?.display_name ?? selectedCaseworker}`
+                : "Showing your cases"}
+            </p>
+          </div>
+        )}
+
+        {!loading && teamMembers.length > 0 && (
+          <div style={{ marginBottom: "20px" }}>
+            <h2 className="govuk-heading-m">Team caseworkers</h2>
+            <ul className="govuk-list govuk-!-margin-bottom-0">
+              {teamMembers.map((member) => (
+                <li key={member.username}>{member.display_name} ({member.username})</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {!loading && data && data.cases.length === 0 && (
           <p className="govuk-body">No cases found.</p>

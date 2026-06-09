@@ -63,6 +63,7 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = request.nextUrl;
     const statusFilter = searchParams.get("status") as WorkflowStateName | null;
+    const assignedToFilter = searchParams.get("assigned_to");
     const sortField = searchParams.get("sort") || "created_date";
     const sortOrder = searchParams.get("order") || "desc";
     const viewParam = searchParams.get("view");
@@ -74,14 +75,23 @@ export async function GET(request: NextRequest) {
 
     let filtered: Case[];
     if (isTeamView) {
-      // Team leader view: show all cases assigned to same-team caseworkers
+      // Team leader view: default to the team leader's own cases unless a caseworker is selected
       const users = readUsers();
       const teamUsernames = new Set(
         users
           .filter((u) => u.team === session.team && u.role === "caseworker")
           .map((u) => u.username)
       );
-      filtered = allCases.filter((c) => teamUsernames.has(c.assigned_to));
+
+      if (assignedToFilter) {
+        if (teamUsernames.has(assignedToFilter)) {
+          filtered = allCases.filter((c) => c.assigned_to === assignedToFilter);
+        } else {
+          filtered = [];
+        }
+      } else {
+        filtered = allCases.filter((c) => c.assigned_to === session.username);
+      }
     } else {
       // Caseworker view: show only own cases
       filtered = allCases.filter((c) => c.assigned_to === session.username);
