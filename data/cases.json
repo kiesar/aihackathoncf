@@ -1898,5 +1898,63 @@
       }
     ],
     "evidence_requested_date": "2026-05-18T13:25:00.948Z"
+  },
+  {
+    "case_id": "DSA-2026-00013",
+    "case_type": "dsa_application",
+    "status": "awaiting_evidence",
+    "applicant": {
+      "name": "Anna Scotstoun",
+      "forenames": "Anna",
+      "surname": "Scotstoun",
+      "reference": "29292929291",
+      "date_of_birth": "2000-11-11",
+      "sex": "female",
+      "address": {
+        "line1": "46 Church Lane",
+        "line3": "Glasgow City",
+        "postcode": "G78 1TE"
+      },
+      "university": "University of Glasgow",
+      "course": "PG Biochem",
+      "notification_channel": "email",
+      "email": "ssarguroh@hotmail.com"
+    },
+    "assigned_to": "jsmith",
+    "created_date": "2026-06-09T08:25:14.833Z",
+    "last_updated": "2026-06-09T08:25:14.833Z",
+    "timeline": [
+      {
+        "date": "2026-06-09T08:25:14.833Z",
+        "event": "case_created",
+        "note": "Application submitted by applicant"
+      }
+    ],
+    "case_notes": "",
+    "application_data": {
+      "cost_items": [
+        {
+          "id": "cost-1",
+          "description": "Specialist Study Skills mentoring",
+          "amount": 1000,
+          "supplier": "Specialist Study.com"
+        },
+        {
+          "id": "cost-3",
+          "description": "Laptop with assistive software",
+          "amount": 1500,
+          "supplier": "Specialist Study.com"
+        },
+        {
+          "id": "cost-6",
+          "description": "Text-to-speech software licence",
+          "amount": 1999,
+          "supplier": "Specialist Study.com"
+        }
+      ],
+      "total_amount": 4499,
+      "declaration_confirmed": true,
+      "submitted_at": "2026-06-09T08:25:14.833Z"
+    }
   }
 ]

@@ -38,8 +38,13 @@ export default {
     }
 
     // Handle API routes and pages with Next.js
+    // Create a new request with if-modified-since header to prevent 304 responses
+    const headers = new Headers(request.headers);
+    headers.set('if-modified-since', 'Mon, 01 Jan 2022 01:01:01 GMT');
+    const modifiedRequest = new Request(request, { headers });
+    
     const { handleRequest } = await import("./.next/server/index.js");
-    return handleRequest(request, env, ctx);
+    return handleRequest(modifiedRequest, env, ctx);
   },
 };
 

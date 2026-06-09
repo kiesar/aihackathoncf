@@ -38,3 +38,11 @@ yarn-error.log*
 
 # Temp files
 *.tmp
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
