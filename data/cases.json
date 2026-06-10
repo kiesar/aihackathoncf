@@ -196,7 +196,7 @@
     },
     "assigned_to": "mbrown",
     "created_date": "2026-01-10T11:00:00.000Z",
-    "last_updated": "2026-06-01T14:00:39.643Z",
+    "last_updated": "2026-06-10T12:57:57.523Z",
     "timeline": [
       {
         "date": "2026-01-10T11:00:00.000Z",
@@ -218,6 +218,11 @@
         "date": "2026-06-01T14:00:39.643Z",
         "event": "notification_sent",
         "note": "Automated letter sent: Urgent: Evidence required for DSA application DSA-2026-00003 — deadline approaching"
+      },
+      {
+        "date": "2026-06-10T12:57:57.523Z",
+        "event": "notification_sent",
+        "note": "Automated letter sent: Action required: Please submit your evidence for DSA application DSA-2026-00003"
       }
     ],
     "case_notes": "",
@@ -264,6 +269,17 @@
         "sent_to": "priya.patel@bristol.ac.uk",
         "triggered_by": "automatic",
         "trigger_rule": "awaiting_evidence_28d"
+      },
+      {
+        "letter_id": "cb5bac17-e425-44e2-a00b-fd14a64022e4",
+        "generated_at": "2026-06-10T12:57:57.523Z",
+        "type": "reminder_evidence",
+        "subject": "Action required: Please submit your evidence for DSA application DSA-2026-00003",
+        "body": "Dear Priya Patel,\n\nWe are writing to remind you that we are still waiting for supporting evidence for your Disabled Students Allowance (DSA) application (reference: DSA-2026-00003).\n\nYour application has been awaiting evidence for 149 days. To avoid delays in processing your application, please submit the required documents as soon as possible.\n\nYou can upload your evidence by visiting your application status page and clicking 'Upload evidence'.\n\nIf you have already submitted your evidence, please disregard this message.\n\nIf you have any questions, please contact us.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+        "sent_via": "email",
+        "sent_to": "priya.patel@bristol.ac.uk",
+        "triggered_by": "automatic",
+        "trigger_rule": "awaiting_evidence_2d"
       }
     ]
   },
@@ -485,7 +501,7 @@
     },
     "assigned_to": "mbrown",
     "created_date": "2026-04-16T13:12:03.032Z",
-    "last_updated": "2026-06-01T14:00:39.643Z",
+    "last_updated": "2026-06-10T12:57:57.523Z",
     "timeline": [
       {
         "date": "2026-04-16T13:12:03.032Z",
@@ -519,6 +535,11 @@
         "date": "2026-06-01T14:00:39.643Z",
         "event": "notification_sent",
         "note": "Automated letter sent: Action required: Please submit your evidence for DSA application DSA-2026-00006"
+      },
+      {
+        "date": "2026-06-10T12:57:57.523Z",
+        "event": "notification_sent",
+        "note": "Automated letter sent: Action required: Please submit your evidence for DSA application DSA-2026-00006"
       }
     ],
     "case_notes": "",
@@ -543,6 +564,17 @@
         "type": "reminder_evidence",
         "subject": "Action required: Please submit your evidence for DSA application DSA-2026-00006",
         "body": "Dear fouad khan,\n\nWe are writing to remind you that we are still waiting for supporting evidence for your Disabled Students Allowance (DSA) application (reference: DSA-2026-00006).\n\nYour application has been awaiting evidence for 8 days. To avoid delays in processing your application, please submit the required documents as soon as possible.\n\nYou can upload your evidence by visiting your application status page and clicking 'Upload evidence'.\n\nIf you have already submitted your evidence, please disregard this message.\n\nIf you have any questions, please contact us.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
+        "sent_via": "email",
+        "sent_to": "fouad.2014.ece.@gmail.com",
+        "triggered_by": "automatic",
+        "trigger_rule": "awaiting_evidence_2d"
+      },
+      {
+        "letter_id": "86226fe5-c843-4213-9668-4a80dc01d76f",
+        "generated_at": "2026-06-10T12:57:57.523Z",
+        "type": "reminder_evidence",
+        "subject": "Action required: Please submit your evidence for DSA application DSA-2026-00006",
+        "body": "Dear fouad khan,\n\nWe are writing to remind you that we are still waiting for supporting evidence for your Disabled Students Allowance (DSA) application (reference: DSA-2026-00006).\n\nYour application has been awaiting evidence for 17 days. To avoid delays in processing your application, please submit the required documents as soon as possible.\n\nYou can upload your evidence by visiting your application status page and clicking 'Upload evidence'.\n\nIf you have already submitted your evidence, please disregard this message.\n\nIf you have any questions, please contact us.\n\nYours sincerely,\nStudent Finance England\nDSA Processing Team",
         "sent_via": "email",
         "sent_to": "fouad.2014.ece.@gmail.com",
         "triggered_by": "automatic",
@@ -2648,5 +2680,301 @@
         ]
       }
     ]
+  },
+  {
+    "case_id": "DSA-2026-00017",
+    "case_type": "dsa_application",
+    "status": "evidence_received",
+    "applicant": {
+      "name": "Jack Formal",
+      "forenames": "Jack",
+      "surname": "Formal",
+      "reference": "29292929291",
+      "date_of_birth": "2000-11-10",
+      "sex": "male",
+      "address": {
+        "line1": "Flat 1",
+        "line2": "51 Church Lane",
+        "line3": "Glasgow City",
+        "postcode": "G2 7JF"
+      },
+      "university": "Glasgow School of Art",
+      "course": "UG Art",
+      "notification_channel": "email",
+      "email": "sarguroh@hotmail.com"
+    },
+    "assigned_to": "jsmith",
+    "created_date": "2026-06-10T12:38:14.514Z",
+    "last_updated": "2026-06-10T12:43:34.848Z",
+    "timeline": [
+      {
+        "date": "2026-06-10T12:38:14.514Z",
+        "event": "case_created",
+        "note": "Application submitted by applicant"
+      },
+      {
+        "date": "2026-06-10T12:40:13.332Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: invoice. Files: invoice_MF20259633.pdf"
+      },
+      {
+        "date": "2026-06-10T12:40:13.332Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England"
+      },
+      {
+        "date": "2026-06-10T12:42:06.116Z",
+        "event": "evidence_requested",
+        "note": "council tax",
+        "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T12:42:22.306Z",
+        "event": "state_transition",
+        "note": "Applicant viewed evidence request — status updated to Awaiting evidence."
+      },
+      {
+        "date": "2026-06-10T12:43:34.848Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: council. Files: Council tax.pdf"
+      },
+      {
+        "date": "2026-06-10T12:43:34.848Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England, Student Awards Agency Scotland, NHS Continuing Healthcare"
+      }
+    ],
+    "case_notes": "",
+    "application_data": {
+      "cost_items": [
+        {
+          "id": "cost-6",
+          "description": "Specialist mentoring sessions",
+          "amount": 2000,
+          "supplier": "Access Facilities Ltd"
+        },
+        {
+          "id": "cost-8",
+          "description": "Specialist mentoring sessions",
+          "amount": 500,
+          "supplier": "Access Facilities Ltd"
+        },
+        {
+          "id": "cost-10",
+          "description": "Note-taking support",
+          "amount": 50,
+          "supplier": "Access Facilities Ltd"
+        },
+        {
+          "id": "cost-12",
+          "description": "Ergonomic equipment (keyboard, mouse, chair)",
+          "amount": 10,
+          "supplier": "Access Facilities Ltd"
+        }
+      ],
+      "total_amount": 2560,
+      "declaration_confirmed": true,
+      "submitted_at": "2026-06-10T12:38:14.514Z"
+    },
+    "evidence_submissions": [
+      {
+        "submitted_at": "2026-06-10T12:40:13.332Z",
+        "description": "invoice",
+        "files": [
+          {
+            "name": "invoice_MF20259633.pdf",
+            "size": 55862,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Invoice",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Invoice date",
+            "value": "19/05/2026",
+            "confidence": "low"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Supplier name",
+            "value": "MacFire Ltd",
+            "confidence": "high"
+          },
+          {
+            "key": "reference_number",
+            "label": "Invoice number",
+            "value": "1315",
+            "confidence": "high"
+          },
+          {
+            "key": "item_description",
+            "label": "Item / service description",
+            "value": "Fire Safety",
+            "confidence": "low"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (exc. VAT) £",
+            "value": "£225.00",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT £",
+            "value": "",
+            "confidence": "low"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT) £",
+            "value": "£270.00",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "PA2 7LA",
+            "confidence": "high"
+          },
+          {
+            "key": "sort_code",
+            "label": "Sort code",
+            "value": "80 22 60",
+            "confidence": "high"
+          },
+          {
+            "key": "account_number",
+            "label": "Account number",
+            "value": "06410892",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T12:40:13.332Z",
+            "expires_at": "2026-09-08T12:40:13.332Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          }
+        ]
+      },
+      {
+        "submitted_at": "2026-06-10T12:43:34.848Z",
+        "description": "council",
+        "files": [
+          {
+            "name": "Council tax.pdf",
+            "size": 21031,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Council tax",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Document date",
+            "value": "10/03/2025",
+            "confidence": "high"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Issuing organisation",
+            "value": "Glasgow City Council",
+            "confidence": "high"
+          },
+          {
+            "key": "person_name",
+            "label": "Name on document",
+            "value": "Emma Roberts",
+            "confidence": "high"
+          },
+          {
+            "key": "address_line1",
+            "label": "Address line 1",
+            "value": "100 Place Avenue",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "NW2 7EB",
+            "confidence": "high"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (£)",
+            "value": "£3200",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT",
+            "value": "",
+            "confidence": "medium"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT)",
+            "value": "£3200",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T12:43:34.848Z",
+            "expires_at": "2026-09-08T12:43:34.848Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          },
+          {
+            "alb_id": "saas",
+            "alb_name": "Student Awards Agency Scotland",
+            "granted_at": "2026-06-10T12:43:34.848Z",
+            "expires_at": "2026-12-07T13:43:34.848Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank"
+            ]
+          },
+          {
+            "alb_id": "nhs_continuing_care",
+            "alb_name": "NHS Continuing Healthcare",
+            "granted_at": "2026-06-10T12:43:34.848Z",
+            "expires_at": "2026-09-08T12:43:34.853Z",
+            "evidence_types": [
+              "diagnostic",
+              "address"
+            ]
+          }
+        ]
+      }
+    ],
+    "evidence_requested_date": "2026-06-10T12:42:06.116Z"
   }
 ]
