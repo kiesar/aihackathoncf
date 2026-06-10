@@ -6,8 +6,8 @@
     "node": ">=25.2.1"
   },
   "scripts": {
-    "build-next": "npm run clean:cache && cross-env SKIP_BUILD_CHECK=true NODE_ENV=production next build",
-    "build:aihackathoncf": "npm run clean:cache && opennextjs-cloudflare build",
+    "build": "npm run clean:cache && cross-env SKIP_BUILD_CHECK=true NODE_ENV=production next build",
+    "build:aihackathoncf": "opennextjs-cloudflare build",
     "dev": "next dev",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "clean:cache": "node -e \"require('fs').rmSync('.next/dev', {recursive: true, force: true}); require('fs').rmSync('.next/.turbopack', {recursive: true, force: true}); require('fs').rmSync('.next/cache', {recursive: true, force: true});\"",
