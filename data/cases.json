@@ -1698,9 +1698,9 @@
       "notification_channel": "email",
       "email": "sarguroh@hotmail.com"
     },
-    "assigned_to": "awilson",
+    "assigned_to": "jsmith",
     "created_date": "2026-05-18T13:18:42.606Z",
-    "last_updated": "2026-06-10T08:19:02.603Z",
+    "last_updated": "2026-06-10T08:53:32.336Z",
     "timeline": [
       {
         "date": "2026-05-18T13:18:42.606Z",
@@ -1739,6 +1739,12 @@
         "event": "reassigned",
         "note": "Reassigned from jsmith to awilson",
         "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T08:53:32.336Z",
+        "event": "reassigned",
+        "note": "Reassigned from awilson to jsmith",
+        "actor": "awilson"
       }
     ],
     "case_notes": "",
@@ -1968,5 +1974,679 @@
       "declaration_confirmed": true,
       "submitted_at": "2026-06-09T08:25:14.833Z"
     }
+  },
+  {
+    "case_id": "DSA-2026-00014",
+    "case_type": "dsa_application",
+    "status": "awaiting_evidence",
+    "applicant": {
+      "name": "Jack Dundonian",
+      "forenames": "Jack",
+      "surname": "Dundonian",
+      "reference": "29292929290",
+      "date_of_birth": "2001-11-10",
+      "sex": "male",
+      "address": {
+        "line1": "51 Church Lane",
+        "line3": "Glasgow City",
+        "postcode": "G2 7JF"
+      },
+      "university": "Glasgow Caledonian University",
+      "course": "UG Arts",
+      "notification_channel": "email",
+      "email": "jack.dundonian@hotmail.com"
+    },
+    "assigned_to": "jsmith",
+    "created_date": "2026-06-10T08:38:24.003Z",
+    "last_updated": "2026-06-10T08:38:24.003Z",
+    "timeline": [
+      {
+        "date": "2026-06-10T08:38:24.003Z",
+        "event": "case_created",
+        "note": "Application submitted by applicant"
+      }
+    ],
+    "case_notes": "",
+    "application_data": {
+      "cost_items": [
+        {
+          "id": "cost-1",
+          "description": "Fire Safety",
+          "amount": 500,
+          "supplier": "Fire RIsk Mgt"
+        },
+        {
+          "id": "cost-3",
+          "description": "Laptop with assistive software",
+          "amount": 900,
+          "supplier": "Enablement Services Ltd"
+        },
+        {
+          "id": "cost-6",
+          "description": "Text-to-speech software licence",
+          "amount": 750,
+          "supplier": "Enablement Services Ltd"
+        },
+        {
+          "id": "cost-8",
+          "description": "Note-taking support",
+          "amount": 250,
+          "supplier": "Enablement Services Ltd"
+        }
+      ],
+      "total_amount": 2400,
+      "declaration_confirmed": true,
+      "submitted_at": "2026-06-10T08:38:24.003Z"
+    }
+  },
+  {
+    "case_id": "DSA-2026-00015",
+    "case_type": "dsa_application",
+    "status": "under_review",
+    "applicant": {
+      "name": "Alice Crafter",
+      "forenames": "Alice",
+      "surname": "Crafter",
+      "reference": "1909190919091",
+      "date_of_birth": "2001-08-11",
+      "sex": "female",
+      "address": {
+        "line1": "55 Church Lane",
+        "line3": "Glasgow City",
+        "postcode": "G2 7JF"
+      },
+      "university": "University of Strathclyde",
+      "course": "UG Engineering Maths",
+      "notification_channel": "email",
+      "email": "alice.crafter@hotmail.com"
+    },
+    "assigned_to": "jsmith",
+    "created_date": "2026-06-10T08:46:15.619Z",
+    "last_updated": "2026-06-10T09:03:03.192Z",
+    "timeline": [
+      {
+        "date": "2026-06-10T08:46:15.619Z",
+        "event": "case_created",
+        "note": "Application submitted by applicant"
+      },
+      {
+        "date": "2026-06-10T09:00:56.375Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: invoice. Files: invoice_MF20259633.pdf"
+      },
+      {
+        "date": "2026-06-10T09:00:56.375Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England"
+      },
+      {
+        "date": "2026-06-10T09:01:31.687Z",
+        "event": "evidence_requested",
+        "note": "upload council tax",
+        "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T09:01:42.570Z",
+        "event": "state_transition",
+        "note": "Applicant viewed evidence request — status updated to Awaiting evidence."
+      },
+      {
+        "date": "2026-06-10T09:02:13.896Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: council tax. Files: Council tax.pdf"
+      },
+      {
+        "date": "2026-06-10T09:02:13.896Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England, Student Awards Agency Scotland"
+      },
+      {
+        "date": "2026-06-10T09:03:03.192Z",
+        "event": "state_transition",
+        "note": "please check evidences",
+        "actor": "jsmith"
+      }
+    ],
+    "case_notes": "",
+    "application_data": {
+      "cost_items": [
+        {
+          "id": "cost-1",
+          "description": "Lift (indoor) Maintenance",
+          "amount": 500,
+          "supplier": "Accessibility Lift Ltd"
+        },
+        {
+          "id": "cost-3",
+          "description": "Ergonomic equipment (keyboard, mouse, chair)",
+          "amount": 250,
+          "supplier": "Accessibility Supplies Ltd."
+        },
+        {
+          "id": "cost-6",
+          "description": "Specialist mentoring sessions",
+          "amount": 300,
+          "supplier": "Accessibility Supplies Ltd."
+        },
+        {
+          "id": "cost-8",
+          "description": "Recording device for lectures",
+          "amount": 550,
+          "supplier": "Accessibility Supplies Ltd."
+        }
+      ],
+      "total_amount": 1600,
+      "declaration_confirmed": true,
+      "submitted_at": "2026-06-10T08:46:15.619Z"
+    },
+    "evidence_submissions": [
+      {
+        "submitted_at": "2026-06-10T09:00:56.375Z",
+        "description": "invoice",
+        "files": [
+          {
+            "name": "invoice_MF20259633.pdf",
+            "size": 55862,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Invoice",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Invoice date",
+            "value": "19 Mar 2026",
+            "confidence": "low"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Supplier name",
+            "value": "MacFire Ltd",
+            "confidence": "high"
+          },
+          {
+            "key": "reference_number",
+            "label": "Invoice number",
+            "value": "1315",
+            "confidence": "high"
+          },
+          {
+            "key": "item_description",
+            "label": "Item / service description",
+            "value": "FIre Safety",
+            "confidence": "low"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (exc. VAT) £",
+            "value": "£225.00",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT £",
+            "value": "",
+            "confidence": "low"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT) £",
+            "value": "£270.00",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "PA2 7LA",
+            "confidence": "high"
+          },
+          {
+            "key": "sort_code",
+            "label": "Sort code",
+            "value": "80 22 60",
+            "confidence": "high"
+          },
+          {
+            "key": "account_number",
+            "label": "Account number",
+            "value": "06410892",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T09:00:56.375Z",
+            "expires_at": "2026-09-08T09:00:56.375Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          }
+        ]
+      },
+      {
+        "submitted_at": "2026-06-10T09:02:13.896Z",
+        "description": "council tax",
+        "files": [
+          {
+            "name": "Council tax.pdf",
+            "size": 21031,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Council tax",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Document date",
+            "value": "10/03/2025",
+            "confidence": "high"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Issuing organisation",
+            "value": "Glasgow City Council",
+            "confidence": "high"
+          },
+          {
+            "key": "person_name",
+            "label": "Name on document",
+            "value": "Emma Roberts",
+            "confidence": "high"
+          },
+          {
+            "key": "address_line1",
+            "label": "Address line 1",
+            "value": "100 Place Avenue",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "NW2 7EB",
+            "confidence": "high"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (£)",
+            "value": "£3200",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT",
+            "value": "",
+            "confidence": "medium"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT)",
+            "value": "£3200",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T09:02:13.896Z",
+            "expires_at": "2026-09-08T09:02:13.896Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          },
+          {
+            "alb_id": "saas",
+            "alb_name": "Student Awards Agency Scotland",
+            "granted_at": "2026-06-10T09:02:13.896Z",
+            "expires_at": "2026-09-08T09:02:13.896Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank"
+            ]
+          }
+        ]
+      }
+    ],
+    "evidence_requested_date": "2026-06-10T09:01:31.687Z"
+  },
+  {
+    "case_id": "DSA-2026-00016",
+    "case_type": "dsa_application",
+    "status": "evidence_received",
+    "applicant": {
+      "name": "Angela Warick",
+      "forenames": "Angela",
+      "surname": "Warick",
+      "reference": "3033033031",
+      "date_of_birth": "2001-07-09",
+      "sex": "female",
+      "address": {
+        "line1": "Flat 1",
+        "line2": "51 Church Lane",
+        "line3": "Glasgow City",
+        "postcode": "G2 7JF"
+      },
+      "university": "Glasgow School of Art",
+      "course": "UG Arts",
+      "notification_channel": "email",
+      "email": "angelaw@hotmail.com"
+    },
+    "assigned_to": "jsmith",
+    "created_date": "2026-06-10T08:51:59.508Z",
+    "last_updated": "2026-06-10T08:57:54.750Z",
+    "timeline": [
+      {
+        "date": "2026-06-10T08:51:59.508Z",
+        "event": "case_created",
+        "note": "Application submitted by applicant"
+      },
+      {
+        "date": "2026-06-10T08:54:29.392Z",
+        "event": "evidence_requested",
+        "note": "Please send invoices and council tax",
+        "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T08:54:47.829Z",
+        "event": "state_transition",
+        "note": "Applicant viewed evidence request — status updated to Awaiting evidence."
+      },
+      {
+        "date": "2026-06-10T08:56:00.416Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: invoice. Files: invoice_MF20259633.pdf"
+      },
+      {
+        "date": "2026-06-10T08:56:00.416Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England"
+      },
+      {
+        "date": "2026-06-10T08:57:00.125Z",
+        "event": "evidence_requested",
+        "note": "We require council tax as well",
+        "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T08:57:24.259Z",
+        "event": "state_transition",
+        "note": "Applicant viewed evidence request — status updated to Awaiting evidence."
+      },
+      {
+        "date": "2026-06-10T08:57:54.750Z",
+        "event": "evidence_received",
+        "note": "Evidence uploaded by applicant: council tax. Files: Council tax.pdf"
+      },
+      {
+        "date": "2026-06-10T08:57:54.750Z",
+        "event": "notification_sent",
+        "note": "Applicant granted evidence access consent to: Student Finance England, Student Awards Agency Scotland, Personal Independence Payment (DWP)"
+      }
+    ],
+    "case_notes": "",
+    "application_data": {
+      "cost_items": [
+        {
+          "id": "cost-3",
+          "description": "Laptop with assistive software",
+          "amount": 350,
+          "supplier": "DSA Supplier 1 Ltd"
+        },
+        {
+          "id": "cost-6",
+          "description": "Recording device for lectures",
+          "amount": 250,
+          "supplier": "DSA Supplier 1 Ltd"
+        },
+        {
+          "id": "cost-8",
+          "description": "Text-to-speech software licence",
+          "amount": 330,
+          "supplier": "DSA Supplier 1 Ltd"
+        },
+        {
+          "id": "cost-10",
+          "description": "Specialist study skills mentoring",
+          "amount": 400,
+          "supplier": "DSA Supplier 1 Ltd"
+        },
+        {
+          "id": "cost-12",
+          "description": "Note-taking support",
+          "amount": 275,
+          "supplier": "DSA Supplier 1 Ltd"
+        },
+        {
+          "id": "cost-14",
+          "description": "Ergonomic equipment (keyboard, mouse, chair)",
+          "amount": 175,
+          "supplier": "DSA Supplier 1 Ltd"
+        }
+      ],
+      "total_amount": 1780,
+      "declaration_confirmed": true,
+      "submitted_at": "2026-06-10T08:51:59.508Z"
+    },
+    "evidence_requested_date": "2026-06-10T08:57:00.125Z",
+    "evidence_submissions": [
+      {
+        "submitted_at": "2026-06-10T08:56:00.416Z",
+        "description": "invoice",
+        "files": [
+          {
+            "name": "invoice_MF20259633.pdf",
+            "size": 55862,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Invoice",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Invoice date",
+            "value": "19 Mar 2026",
+            "confidence": "low"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Supplier name",
+            "value": "MacFire Ltd",
+            "confidence": "high"
+          },
+          {
+            "key": "reference_number",
+            "label": "Invoice number",
+            "value": "1315",
+            "confidence": "high"
+          },
+          {
+            "key": "item_description",
+            "label": "Item / service description",
+            "value": "Fire Safety",
+            "confidence": "low"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (exc. VAT) £",
+            "value": "£225.00",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT £",
+            "value": "",
+            "confidence": "low"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT) £",
+            "value": "£270.00",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "PA2 7LA",
+            "confidence": "high"
+          },
+          {
+            "key": "sort_code",
+            "label": "Sort code",
+            "value": "80 22 60",
+            "confidence": "high"
+          },
+          {
+            "key": "account_number",
+            "label": "Account number",
+            "value": "06410892",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T08:56:00.416Z",
+            "expires_at": "2026-09-08T08:56:00.416Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          }
+        ]
+      },
+      {
+        "submitted_at": "2026-06-10T08:57:54.750Z",
+        "description": "council tax",
+        "files": [
+          {
+            "name": "Council tax.pdf",
+            "size": 21031,
+            "type": "application/pdf"
+          }
+        ],
+        "extracted_fields": [
+          {
+            "key": "document_type",
+            "label": "Document type",
+            "value": "Council tax",
+            "confidence": "high"
+          },
+          {
+            "key": "document_date",
+            "label": "Document date",
+            "value": "10/03/2025",
+            "confidence": "high"
+          },
+          {
+            "key": "issuing_body",
+            "label": "Issuing organisation",
+            "value": "Glasgow City Council",
+            "confidence": "high"
+          },
+          {
+            "key": "person_name",
+            "label": "Name on document",
+            "value": "Emma Roberts",
+            "confidence": "high"
+          },
+          {
+            "key": "address_line1",
+            "label": "Address line 1",
+            "value": "100 Place Avenue",
+            "confidence": "high"
+          },
+          {
+            "key": "postcode",
+            "label": "Postcode",
+            "value": "NW2 7EB",
+            "confidence": "high"
+          },
+          {
+            "key": "amount",
+            "label": "Amount (£)",
+            "value": "£3200",
+            "confidence": "high"
+          },
+          {
+            "key": "vat",
+            "label": "VAT",
+            "value": "",
+            "confidence": "medium"
+          },
+          {
+            "key": "total",
+            "label": "Total (inc. VAT)",
+            "value": "£3200",
+            "confidence": "high"
+          }
+        ],
+        "consent_grants": [
+          {
+            "alb_id": "sfe",
+            "alb_name": "Student Finance England",
+            "granted_at": "2026-06-10T08:57:54.750Z",
+            "expires_at": "2026-09-08T08:57:54.750Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank",
+              "invoice",
+              "quote"
+            ]
+          },
+          {
+            "alb_id": "saas",
+            "alb_name": "Student Awards Agency Scotland",
+            "granted_at": "2026-06-10T08:57:54.750Z",
+            "expires_at": "2026-09-08T08:57:54.750Z",
+            "evidence_types": [
+              "diagnostic",
+              "address",
+              "bank"
+            ]
+          },
+          {
+            "alb_id": "pip",
+            "alb_name": "Personal Independence Payment (DWP)",
+            "granted_at": "2026-06-10T08:57:54.750Z",
+            "expires_at": "2026-09-08T08:57:54.750Z",
+            "evidence_types": [
+              "diagnostic",
+              "address"
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
