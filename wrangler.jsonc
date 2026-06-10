@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"main": ".next/worker.js",
+	"main": ".open-next/worker.js",
 	"name": "aihackathoncf",
 	"compatibility_date": "2026-06-09",
 	//"pages_build_output_dir": ".open-next/",
@@ -16,4 +16,9 @@
 			"service": "aihackathoncf"
 		}
 	],
+	"assets": {
+    "directory": "./open-next/assets",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  	},
 }	
