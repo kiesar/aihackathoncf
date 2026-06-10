@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run clean:cache && cross-env SKIP_BUILD_CHECK=true NODE_ENV=production next build",
     "dev": "next dev",
-    "deploy": "next build && next deploy",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "clean:cache": "node -e \"require('fs').rmSync('.next/dev', {recursive: true, force: true}); require('fs').rmSync('.next/.turbopack', {recursive: true, force: true}); require('fs').rmSync('.next/cache', {recursive: true, force: true});\"",
     "start": "next start",
     "test": "vitest --run",

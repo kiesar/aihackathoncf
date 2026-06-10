@@ -77,10 +77,9 @@ export async function GET(request: NextRequest) {
     if (isTeamView) {
       // Team leader view: default to the team leader's own cases unless a caseworker is selected
       const users = readUsers();
+      // Include all team members (caseworkers and the team leader) when showing team view
       const teamUsernames = new Set(
-        users
-          .filter((u) => u.team === session.team && u.role === "caseworker")
-          .map((u) => u.username)
+        users.filter((u) => u.team === session.team).map((u) => u.username)
       );
 
       if (assignedToFilter) {
@@ -90,7 +89,8 @@ export async function GET(request: NextRequest) {
           filtered = [];
         }
       } else {
-        filtered = allCases.filter((c) => c.assigned_to === session.username);
+        // Default to showing all cases assigned to members of the team
+        filtered = allCases.filter((c) => c.assigned_to && teamUsernames.has(c.assigned_to));
       }
     } else {
       // Caseworker view: show only own cases

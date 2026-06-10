@@ -242,7 +242,7 @@ describe("GET /api/dashboard/cases?view=team", () => {
     mockedReadUsers.mockReturnValue(teamUsers);
   });
 
-  it("returns the team leader's own cases by default in team view", async () => {
+  it("returns all team cases by default in team view", async () => {
     const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "awilson" });
     const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "jsmith" });
     const case3 = makeCase({ case_id: "DSA-2026-00003", assigned_to: "mbrown" });
@@ -250,20 +250,20 @@ describe("GET /api/dashboard/cases?view=team", () => {
 
     const res = await GET(buildRequest("view=team"));
     const body = await res.json();
-    expect(body.totalCount).toBe(1);
-    expect(body.cases[0].case_id).toBe("DSA-2026-00001");
-    expect(body.cases[0].assigned_to).toBe("awilson");
+    expect(body.totalCount).toBe(3);
+    const ids = body.cases.map((c: any) => c.case_id);
+    expect(ids).toEqual(expect.arrayContaining(["DSA-2026-00001", "DSA-2026-00002", "DSA-2026-00003"]));
   });
 
-  it("returns no cases when the team leader has no assigned cases in team view", async () => {
+  it("returns team cases when the team leader has no personally assigned cases", async () => {
     const case1 = makeCase({ case_id: "DSA-2026-00001", assigned_to: "jsmith" });
     const case2 = makeCase({ case_id: "DSA-2026-00002", assigned_to: "mbrown" });
     mockedReadCases.mockReturnValue([case1, case2]);
 
     const res = await GET(buildRequest("view=team"));
     const body = await res.json();
-    expect(body.totalCount).toBe(0);
-    expect(body.cases).toEqual([]);
+    expect(body.totalCount).toBe(2);
+    expect(body.cases.map((c: any) => c.case_id)).toEqual(["DSA-2026-00001", "DSA-2026-00002"]);
   });
 
   it("includes assigned_to in team view response items when a team member is selected", async () => {
@@ -286,7 +286,7 @@ describe("GET /api/dashboard/cases?view=team", () => {
     const res = await GET(buildRequest("view=team"));
     const body = await res.json();
     expect(body.stateCounts).toEqual({
-      awaiting_evidence: 1,
+      awaiting_evidence: 2,
       under_review: 1,
     });
   });
