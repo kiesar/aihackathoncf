@@ -287,9 +287,9 @@
       "notification_channel": "email",
       "email": "tw456@exeter.ac.uk"
     },
-    "assigned_to": "jsmith",
+    "assigned_to": "awilson",
     "created_date": "2026-01-05T10:00:00.000Z",
-    "last_updated": "2026-02-28T15:45:00.000Z",
+    "last_updated": "2026-06-10T08:19:12.565Z",
     "timeline": [
       {
         "date": "2026-01-05T10:00:00.000Z",
@@ -317,6 +317,12 @@
         "date": "2026-02-28T15:45:00.000Z",
         "event": "decision_made",
         "note": "Application approved — all criteria met",
+        "actor": "jsmith"
+      },
+      {
+        "date": "2026-06-10T08:19:12.565Z",
+        "event": "reassigned",
+        "note": "Reassigned from jsmith to awilson",
         "actor": "jsmith"
       }
     ],
@@ -1692,9 +1698,9 @@
       "notification_channel": "email",
       "email": "sarguroh@hotmail.com"
     },
-    "assigned_to": "jsmith",
+    "assigned_to": "awilson",
     "created_date": "2026-05-18T13:18:42.606Z",
-    "last_updated": "2026-05-18T13:26:55.062Z",
+    "last_updated": "2026-06-10T08:19:02.603Z",
     "timeline": [
       {
         "date": "2026-05-18T13:18:42.606Z",
@@ -1727,6 +1733,12 @@
         "date": "2026-05-18T13:26:55.062Z",
         "event": "evidence_received",
         "note": "Evidence uploaded by applicant: invoice. Files: invoice_MF20259633.pdf"
+      },
+      {
+        "date": "2026-06-10T08:19:02.603Z",
+        "event": "reassigned",
+        "note": "Reassigned from jsmith to awilson",
+        "actor": "jsmith"
       }
     ],
     "case_notes": "",
